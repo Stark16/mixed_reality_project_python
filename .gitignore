@@ -1,3 +1,7 @@
 /mixed_reality_venv
 **/data/images
 **/Python_scripts/training_gesture_recognition/dataset
+Library
+Assets/*
+!Assets/.gitkeep
+.vs

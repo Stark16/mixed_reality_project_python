@@ -1,0 +1,62 @@
+AR App crashing on my Phone when ARsession is loaded. (Unity 2019.)
+
+
+
+I have made a Unity Project with 2 scenes:
+1. The main menu screen:
+Annotation 2020-08-13 145402.jpg
+
+2. The Ar session Scene
+Annotation 2020-08-13 145440.jpg
+When I hit play the App crashes. I have tried the following:
+
+1. Changed the ARFoundation and ARCore Version from Package Manager.
+2. Tried a basic and plain new Unity Project in both Unity 2020 and 2019.4.
+3. Rebooting My Phone
+4. Trying APK on other Android devices of my Family and Friends (It works on their device just fine)
+
+One thing I have noticed is that any project without AR-Session in the hierarchy runs just fine (Which explains why the App doest Crash in the Main Menu Screen)
+
+But as soon as it tried to load an ARSession, it crashes.
+
+I managed to get the crash report which is attached below:
+
+[code=CSharp]java.lang.Error: FATAL EXCEPTION [UnityMain]
+Unity version     : 2019.3.7f1
+Device model      : Xiaomi POCO F1
+Device fingerprint: Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys
+
+Caused by: java.lang.Error: * * * * * * * * * * * * * * * *
+Version '2019.3.7f1 (6437fd74d35d)', Build type 'Release', Scripting Backend 'mono', CPU 'armeabi-v7a'
+Build fingerprint: 'Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys'
+Revision: '0'
+ABI: 'arm'
+Timestamp: 2020-08-13 14:39:24+0530
+pid: 14068, tid: 14121, name: UnityMain  >>> com.Moving_Objects.Moving_Stuffs <<<
+uid: 10325
+signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0
+Cause: null pointer dereference
+    r0  00000000  r1  00000000  r2  00000000  r3  00000001
+    r4  b341b2d0  r5  be53a87c  r6  80808080  r7  00000000
+    r8  b9d610b0  r9  00000000  r10 00000000  r11 b6370f60
+    ip  b63a7c90  sp  be53a878  lr  b6379859  pc  00000000
+
+managed backtrace:
+      #00 (wrapper managed-to-native) UnityEngine.XR.ARCore.ARCoreSessionSubsystem/NativeApi:UnityARCore_session_update (UnityEngine.ScreenOrientation,UnityEngine.Vector2Int,intptr,UnityEngine.XR.ARSubsystems.Feature)
+      #01 UnityEngine.XR.ARCore.ARCoreSessionSubsystem/ARCoreProvider:Update (UnityEngine.XR.ARSubsystems.XRSessionUpdateParams,UnityEngine.XR.ARSubsystems.Configuration) <0xef>
+      #02 UnityEngine.XR.ARSubsystems.XRSessionSubsystem:Update (UnityEngine.XR.ARSubsystems.XRSessionUpdateParams) <0x1d3>
+      #03 UnityEngine.XR.ARFoundation.ARSession:Update () <0x157>
+      #04 (wrapper runtime-invoke) object:runtime_invoke_void_this_ (object,intptr,intptr,intptr)
+
+    at UnityEngine.XR.ARCore.ARCoreSessionSubsystem.NativeApi.UnityARCore_session_update (UnityEngine.ScreenOrientation,UnityEngine.Vector2Int,intptr,UnityEngine.XR.ARSubsystems.Feature)(Native Method)
+    at UnityEngine.XR.ARCore.ARCoreSessionSubsystem.ARCoreProvider.Update (UnityEngine.XR.ARSubsystems.XRSessionUpdateParams,UnityEngine.XR.ARSubsystems.Configuration)(0xef:239)
+    at UnityEngine.XR.ARSubsystems.XRSessionSubsystem.Update (UnityEngine.XR.ARSubsystems.XRSessionUpdateParams)(0x1d3:467)
+    at UnityEngine.XR.ARFoundation.ARSession.Update ()(0x157:343)
+    at System.Object.runtime_invoke_void_this_ (object,intptr,intptr,intptr)(Native Method)[/code]
+
+Can someone suggest any device settings for android to fix this? Because I have also found that usual solution is to Factory reset the device. Which I am avoiding, as its my personal phone and not a test phone.
+
+Phone: POCO f1, Andoird 10
+Unity: 2019.4
+ARFoundation: 4.1.0 (or any other version results the same outcome)
+ARCore: 4.1.0 (or any other version results the same outcome)

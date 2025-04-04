@@ -1,0 +1,32 @@
+java.lang.Error: FATAL EXCEPTION [UnityMain]
+Unity version     : 2019.3.7f1
+Device model      : Xiaomi POCO F1
+Device fingerprint: Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys
+
+Caused by: java.lang.Error: * * * * * * * * * * * * * * * *
+Version '2019.3.7f1 (6437fd74d35d)', Build type 'Release', Scripting Backend 'mono', CPU 'armeabi-v7a'
+Build fingerprint: 'Xiaomi/beryllium/beryllium:10/QKQ1.190828.002/V11.0.9.0.QEJMIXM:user/release-keys'
+Revision: '0'
+ABI: 'arm'
+Timestamp: 2020-08-13 14:39:24+0530
+pid: 14068, tid: 14121, name: UnityMain  >>> com.Moving_Objects.Moving_Stuffs <<<
+uid: 10325
+signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0
+Cause: null pointer dereference
+    r0  00000000  r1  00000000  r2  00000000  r3  00000001
+    r4  b341b2d0  r5  be53a87c  r6  80808080  r7  00000000
+    r8  b9d610b0  r9  00000000  r10 00000000  r11 b6370f60
+    ip  b63a7c90  sp  be53a878  lr  b6379859  pc  00000000
+
+managed backtrace:
+      #00 (wrapper managed-to-native) UnityEngine.XR.ARCore.ARCoreSessionSubsystem/NativeApi:UnityARCore_session_update (UnityEngine.ScreenOrientation,UnityEngine.Vector2Int,intptr,UnityEngine.XR.ARSubsystems.Feature)
+      #01 UnityEngine.XR.ARCore.ARCoreSessionSubsystem/ARCoreProvider:Update (UnityEngine.XR.ARSubsystems.XRSessionUpdateParams,UnityEngine.XR.ARSubsystems.Configuration) <0xef>
+      #02 UnityEngine.XR.ARSubsystems.XRSessionSubsystem:Update (UnityEngine.XR.ARSubsystems.XRSessionUpdateParams) <0x1d3>
+      #03 UnityEngine.XR.ARFoundation.ARSession:Update () <0x157>
+      #04 (wrapper runtime-invoke) object:runtime_invoke_void_this_ (object,intptr,intptr,intptr)
+
+	at UnityEngine.XR.ARCore.ARCoreSessionSubsystem.NativeApi.UnityARCore_session_update (UnityEngine.ScreenOrientation,UnityEngine.Vector2Int,intptr,UnityEngine.XR.ARSubsystems.Feature)(Native Method)
+	at UnityEngine.XR.ARCore.ARCoreSessionSubsystem.ARCoreProvider.Update (UnityEngine.XR.ARSubsystems.XRSessionUpdateParams,UnityEngine.XR.ARSubsystems.Configuration)(0xef:239)
+	at UnityEngine.XR.ARSubsystems.XRSessionSubsystem.Update (UnityEngine.XR.ARSubsystems.XRSessionUpdateParams)(0x1d3:467)
+	at UnityEngine.XR.ARFoundation.ARSession.Update ()(0x157:343)
+	at System.Object.runtime_invoke_void_this_ (object,intptr,intptr,intptr)(Native Method)
