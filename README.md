@@ -5,7 +5,7 @@ Initially, I was experimenting with Augmented Reality in another project, COD_Re
 
 [Watch Prototype demo on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6744920209175412736/)
 
-![demo](https://github.com/user-attachments/assets/883e99c9-6c8f-4508-9921-7a3fb9c4e51b)
+![demo](https://github.com/user-attachments/assets/603a0c2c-48f3-49ca-a43e-af499bad9f73)
 
 
 # 🎯 Planned Features
